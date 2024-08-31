@@ -1,0 +1,3 @@
+"id","category_id","name","item_no","images","item_description","unit_measure","is_active","created_at","updated_at"
+2,2,"wiper-1","123456","[""items\/123456\/01J5JKY28TFE20J53JH7RQ6P4F.jpg"",""items\/123456\/01J5JKY28Y29DEXFENWHJZNY6W.jpg"",""items\/123456\/01J5JKY291T8720VF7HA5RNE9G.jpg""]","123456","pcs",1,"2024-08-18 11:28:35","2024-08-18 13:26:42"
+3,2,"wiper-2","326555","[""items\/326555\/01J5JTH9HTX42F9MRJBFC2TJH3.jpg"",""items\/326555\/01J5JTH9HZ496VHVEPDTFCDS2Y.jpg"",""items\/326555\/01J5JTH9J2ZG1NA6TGS2FDJYXA.jpg""]","326555","pcs",1,"2024-08-18 13:23:57","2024-08-18 13:28:39"

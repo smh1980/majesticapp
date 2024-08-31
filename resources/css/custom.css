@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Audiowide';
+    src: url('/storage/fonts/Audiowide-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+  /* Custom CSS for the autoplay carousel */
+  @keyframes autoplay-carousel {
+    0%, 20% { transform: translateX(0); }
+    33.33%, 53.33% { transform: translateX(-100%); }
+    66.66%, 86.66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+    /* 0%, 33.33% { transform: translateX(0%); }
+    33.34%, 66.66% { transform: translateX(-100%); }
+    66.67%, 100% { transform: translateX(-200%); } */
+  }
+
+  .carousel {
+    /* animation: autoplay-carousel 30s infinite; */
+    display: flex;
+    animation: autoplay-carousel 10s infinite;
+  }
+
+  .carousel-item {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+.typewriter p {
+    color: rgb(70, 70, 70);
+    display: inline-block;
+    overflow: hidden;
+    border-right: 0.15em solid rgb(0, 0, 0);
+    white-space: nowrap;
+    font-size: 1.5rem;
+    /* animation: typewriter 3s steps(40, end) 1s infinite alternate, blink 0.75s step-end infinite;
+    animation: typewriter 3.5s steps(40, end) 3s infinite alternate, blink-caret .75s step-end infinite;
+    width: 24ch;  Adjust this to the length of your text
+} */
+
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes delete {
+    0% {
+        width: 100%;
+    }
+    50% {
+        width: 0;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes typewriter-cycle {
+    0% {
+        width: 0;
+    }
+    25% {
+        width: 100%;
+    }
+    50% {
+        width: 100%;
+    }
+    75% {
+        width: 0;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}
+
+.typewriter p {
+    /* color: rgb(70, 70, 70); */
+    display: inline-block;
+    overflow: hidden;
+    border-right: 0.15em solid rgb(0, 0, 0);
+    white-space: nowrap;
+    /* font-size: 1.5rem; */
+    animation: typewriter-cycle 10s steps(40, end) infinite,
+               blink 0.75s step-end infinite;
+    width: 24ch; /* Adjust this to the length of your text */
+}
+
+/* Animation configuration */
+.typewriter {
+    position: relative;
+    display: inline-block;
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+    .custom-ipad-pro {
+        max-width: 22rem;
+        margin-left: 12%;
+    }
+    .welcome{
+        /* color: red; */
+        font-size: 0.1rem !important;
+        margin-left: 16.5rem;
+    }
+    .sales{
+        margin-left: 8.5rem;
+    }
+    .ipad-pro{
+        margin-top: 5rem;
+    }
+}
+/* @media (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {
+    .custom-ipad-pro {
+        max-width: 19rem;
+        margin-left: 12%;
+    }
+    .welcome{
+        font-size: 1px !important;
+        margin-top: 2rem;
+        margin-left: 14.5rem;
+    }
+    .sales{
+        margin-left: 8.5rem;
+    }
+} */
+@media (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    .custom-ipad-pro {
+        max-width: 25rem;
+        margin-left: 20%;
+    }
+}
+
+/* Adjust delay and animation timing as needed */
+
+

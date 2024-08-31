@@ -1,0 +1,13 @@
+"id","migration","batch"
+1,"0001_01_01_000000_create_users_table",1
+2,"0001_01_01_000001_create_cache_table",1
+3,"0001_01_01_000002_create_jobs_table",1
+4,"2024_08_17_151831_create_products_categories_table",1
+5,"2024_08_17_151850_create_customers_table",1
+6,"2024_08_17_151903_create_items_table",1
+7,"2024_08_17_151912_create_prices_table",1
+8,"2024_08_17_151923_create_orders_table",1
+9,"2024_08_17_151931_create_order_items_table",1
+11,"2024_08_17_230859_add_persons_name_to_customers_table",2
+12,"2024_08_18_112353_remove_customer_barcode_and_customer_ref_from_items_table",3
+13,"2024_08_18_112515_add_customer_barcode_and_customer_ref_to_prices_table",4

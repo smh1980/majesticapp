@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Audiowide';
+    src: url('/storage/fonts/Audiowide-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mistral';
+    src: url('/storage/fonts/Mistral.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* body {
+    font-family: 'Audiowide', sans-serif;
+} */
