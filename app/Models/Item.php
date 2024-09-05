@@ -25,6 +25,12 @@ class Item extends Model
         'images' => 'array', // Cast the image attribute to an array
     ];
 
+    public function getCustomerPrice($customer_id)
+    {
+        $customerPrice = $this->customerPrices->where('customer_id', $customer_id)->first();
+        return $customerPrice ? $customerPrice->price : $this->price;
+    }
+
     public function category()
     {
         return $this->belongsTo(ProductsCategory::class, 'category_id');

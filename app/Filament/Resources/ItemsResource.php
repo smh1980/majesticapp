@@ -32,6 +32,7 @@ use Filament\Forms\Components\Placeholder;
 use App\Filament\Resources\ItemsResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\ItemsResource\RelationManagers;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class ItemsResource extends Resource
 {
@@ -204,30 +205,47 @@ class ItemsResource extends Resource
                                 // ->label('Images')
                                 // ->reactive()->columnSpan(2)->columns(2),
                                 FileUpload::make('images')
-                ->multiple()
-                ->enableReordering()
-                ->directory(function (callable $get) {
-                    $itemNo = $get('item_no');
-                    $directory = $itemNo ? "items/{$itemNo}" : 'items';
-                    if ($itemNo && !Storage::exists($directory)) {
-                        Storage::makeDirectory($directory);
-                    }
-                    return $directory;
-                })
-                ->label('Images')
-                ->reactive()
-                ->columnSpan(2)
-                ->columns(2)
-                ->afterStateUpdated(function ($state, callable $set, callable $get) {
-                    $itemNo = $get('item_no');
-                    if ($itemNo && $state) {
-                        $directory = "items/{$itemNo}";
-                        if (!Storage::exists($directory)) {
-                            Storage::makeDirectory($directory);
-                        }
-                        $set('images_directory', $directory);
-                    }
-                }),
+                                ->multiple()
+                                ->enableReordering()
+                                // ->directory(function (callable $get) {
+                                //     $itemNo = $get('item_no');
+                                //     $directory = $itemNo ? "items/{$itemNo}" : 'items';
+                                //     if ($itemNo && !Storage::exists($directory)) {
+                                //         Storage::makeDirectory($directory);
+                                //     }
+                                //     // dd($directory);
+                                //     return $directory;
+                                // })
+                                ->directory(function (callable $get) {
+                                    $itemNo = $get('item_no');
+                                    $directory = $itemNo ? "items/{$itemNo}" : 'items';
+                                    
+                                    if ($itemNo && !Storage::exists($directory)) {
+                                        Storage::makeDirectory($directory);
+                                    }                                
+                                    return $directory;
+                                })
+                                ->label('Images')
+                                ->reactive()
+                                ->columnSpan(2)
+                                ->columns(2)
+                                ->preserveFilenames()
+                                ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file, $get): string {
+                                    // return (string) str($file->getClientOriginalName())->prepend($get('cg_number') . '_');
+                                    static $counter = 1; 
+                                    $imageName = 'img_' . $counter;
+                                    $counter++;    
+                                    return (string) str($imageName . '.' . $file->getClientOriginalExtension());
+                                // ->afterStateUpdated(function ($state, callable $set, callable $get) {
+                                //     $itemNo = $get('item_no');
+                                //     if ($itemNo && $state) {
+                                //         $directory = "items/{$itemNo}";
+                                //         if (!Storage::exists($directory)) {
+                                //             Storage::makeDirectory($directory);
+                                //         }
+                                //         $set('images_directory', $directory);
+                                //     }
+                                }),
                             ])->columnSpan(3)->columns(2),  
                             Section::make('Item Status')->label('Item Status')->schema([
                                 Group::make()->label('Item Status')->schema([

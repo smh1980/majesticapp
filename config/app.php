@@ -123,4 +123,18 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    // 'providers' => [
+    //     // ...
+    //     Barryvdh\DomPDF\ServiceProvider::class,
+    //     Maatwebsite\Excel\ExcelServiceProvider::class,
+    // ],
+
+
+    // 'aliases' => [
+    //     // ...
+    //     'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+    //     'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+    // ],
+
+
 ];

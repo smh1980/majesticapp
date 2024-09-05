@@ -24,7 +24,6 @@ return new class extends Migration
             $table->boolean('is_active')->default(true); // Indicates if the item is active
             $table->timestamps(); // Created and updated timestamps
         });
-
     }
 
     /**

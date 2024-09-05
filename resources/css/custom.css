@@ -134,6 +134,7 @@
     }
     .ipad-pro{
         margin-top: 5rem;
+        align-self: center;
     }
 }
 /* @media (min-width: 820px) and (max-width: 1180px) and (orientation: portrait) {

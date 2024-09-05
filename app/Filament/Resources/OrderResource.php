@@ -240,14 +240,14 @@ class OrderResource extends Resource
                                 }
                                 $vat = $total * 0.05;
                                 $grandTotal = $total + $vat;
-                                $set('grand_total', $grandTotal);
+                                // $set('grand_total', $grandTotal);
                                 return new \Illuminate\Support\HtmlString('<strong style="color:red;" class="bold-text">' . Number::currency($grandTotal, 'AED') . '</strong>');
                             }),
                     ])->columns(4),
 
                     Hidden::make('orders_total_amount')->default(0),
                     Hidden::make('vat')->default(0),
-                    Hidden::make('grand_total')->default(0),
+                    // Hidden::make('grand_total')->default(0),
                 ])
             ]),
         ]);
@@ -258,18 +258,6 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 Split::make([
-                    // TextColumn::make('items_in_order')
-                    // ->label('Items in Order')
-                    // ->default(function ($record) {
-                    //     // Assuming $record is an Order model instance
-                    //     $orderId = $record->id;
-
-                    //     // Count the number of items in this order
-                    //     $orderItemCount = OrderItem::where('order_id', $orderId)->count();
-
-                    //     return $orderItemCount;
-                    // })->size('sm')
-                    // ->extraAttributes(['style' => 'max-width:200px']),
                     TextColumn::make('items_in_order')
                     ->label(function (): Htmlable {
                         return new HtmlString('<h2 class="text-lg font-bold">Items in Order</h2>');
@@ -290,7 +278,12 @@ class OrderResource extends Resource
                     ->label('Orders Total Amount')->size(TextColumn\TextColumnSize::Small),
                     TextColumn::make('vat')
                     ->label('Total VAT')->size(TextColumn\TextColumnSize::Small),
-                    TextColumn::make('grand_total')
+                    TextColumn::make('grand_total')->formatStateUsing(function ($record) {
+                        $vat = $record->orders_total_amount * 0.05;
+                        $grandTotal = $record->orders_total_amount + $vat;
+                        return Number::currency($grandTotal, 'AED');
+                        // return new \Illuminate\Support\HtmlString('<strong style="color:red;" class="bold-text">' . Number::currency($grandTotal, 'AED') . '</strong>');
+                    })
                     ->label('Grand Total')->size(TextColumn\TextColumnSize::Small),
                     // TextColumn::make('remarks')
                     // ->label('Remarks')->size(TextColumn\TextColumnSize::Small),
