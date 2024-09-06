@@ -61,19 +61,16 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 
 Route::get('/view-pdf/{order}', function (Order $order) {
-    \Log::info('View PDF route hit', ['order_id' => $order->id]);
     $filename = 'order_' . $order->id . '.pdf';
     $path = storage_path('app/public/' . $filename);
     
     if (file_exists($path)) {
-        \Log::info('PDF file found', ['path' => $path]);
         $file = file_get_contents($path);
         $response = Response::make($file, 200);
         $response->header('Content-Type', 'application/pdf');
         $response->header('Content-Disposition', 'inline; filename="' . $filename . '"');
         return $response;
     } else {
-        \Log::error('PDF file not found', ['path' => $path]);
         abort(404, 'PDF file not found');
     }
 })->name('view.pdf');

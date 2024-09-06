@@ -135,9 +135,9 @@
             container.appendChild(downloadBtn);
             container.appendChild(closeBtn);
             document.body.appendChild(container);
-                });
             });
-        </script>
+        });
+    </script>
         @livewireScripts
         @stack('scripts')
     </body>
